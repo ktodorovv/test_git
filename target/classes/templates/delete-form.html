@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+<meta charset="ISO-8859-1" />
+<title>My Shop</title>
+</head>
+<body th:fragment="delete-form-fragment">
+	<form th:action="@{delete/{id}(id=${item.getId()})}" th:method="POST"
+	onsubmit="return confirm('Are you sure you want to delete this item?');">
+		<button type="submit" value="Delete">Delete</button>	
+	</form>
+</body>
+</html>

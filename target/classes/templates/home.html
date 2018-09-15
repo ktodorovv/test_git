@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+<meta charset="ISO-8859-1" />
+<title>My Shop</title>
+</head>
+<body>
+	<header th:fragment="header-fragment" th:id="menu">
+		<a href="/" class="button-done">Home</a>
+		<a href="/menu/hot-drinks/tea" class="button-done">Tea Menu</a>
+		<a href="/menu/hot-drinks/coffee" class="button-done">Coffee Menu</a>
+		<a href="/menu/cold-drinks/all" class="button-done">Cold Drinks Menu</a>
+		<a href="/menu/food/all" class="button-done">Food Menu</a>
+		<a href="/login" class="button">Login</a>
+		<a href="/register" class="button">Register</a>
+		<a href="/logout" class="button">Logout</a>
+		<a href="/menu/cold-drinks/add" class="button-done">Add Cold Drink</a>
+		<a href="/menu/food/add" class="button-done">Add Food</a>
+		<a href="/menu/hot-drinks/coffee/add" class="button-done">Add Coffee</a>
+		<a href="/menu/hot-drinks/tea/add" class="button-done">Add Tea</a>
+		<a href="/ingredients/add" class="button-done">Add Ingredient</a>
+		<a href="/ingredients/all" class="button-done">All Ingredients</a>
+		<a href="/about" class="button-done">About</a>
+		<a href="/users/all" class="button">All Users</a>
+		<a href="/orders/all" class="button">All User Orders</a>
+		<a href="/cart" class="button">Cart</a>
+	</header>
+	
+	<h1>Welcome to my coffee shop app.</h1>
+</body>
+</html>

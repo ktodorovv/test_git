@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+<meta charset="ISO-8859-1" />
+<title>My Shop</title>
+</head>
+<body>
+	<th:block th:include="~{home :: header-fragment}"></th:block>
+	<h1>All cold drinks:</h1>
+	<div class="item-class" th:each="food : ${foods}">
+		<div th:text="${food.getName()}"></div>
+		<div><img th:src="${food.getPictureLink()}"/></div>
+		<div th:text="|${food.getPrice()} leva|"></div>
+		<div><a class="button" th:href="@{/menu/food/edit/{id}(id=${food.getId()})}">Edit</a></div>
+		<div><a class="button" th:href="@{/menu/food/{id}(id=${food.getId()})}">View</a></div>
+		<th:block th:include="~{delete-form :: delete-form-fragment}" th:with="item = ${food}"></th:block>
+		<br/>
+	</div>
+</body>
+</html>

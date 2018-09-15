@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+<meta charset="ISO-8859-1" />
+<title>My Shop</title>
+</head>
+<body>
+	<th:block th:include="~{home :: header-fragment}"></th:block>
+	<h1>All ingredients:</h1>
+	<div class="item-class" th:each="ingredient : ${ingredients}">
+		<div th:text="${ingredient.getName()}"></div>
+		<div th:text="${ingredient.getCalories()}"></div>
+		<div th:text="${ingredient.getPrice()}"></div>
+		<div th:text="${ingredient.getQuantity()}"></div>
+		<div><a th:href="@{/ingredients/edit/{id}(id=${ingredient.getId()})}">Edit</a></div>
+		<th:block th:include="~{delete-form :: delete-form-fragment}" th:with="item = ${ingredient}"></th:block>
+		<br/>
+	</div>
+</body>
+</html>

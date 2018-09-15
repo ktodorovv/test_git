@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: CoffeeShop
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: kiril
+Implementation-Vendor-Id: com.coffee.shop
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/CoffeeShop
+Created-By: Maven Integration for Eclipse
+

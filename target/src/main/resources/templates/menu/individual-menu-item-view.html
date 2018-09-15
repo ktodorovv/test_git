@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+<meta charset="ISO-8859-1" />
+<title>My Shop</title>
+</head>
+<body>
+	<th:block th:include="~{home :: header-fragment}"></th:block>
+	<h1>All cold drinks:</h1>
+	<h1>Name:</h1>
+	<div th:text="${menuItem.getName()}"></div>
+	<h1>Picture:</h1>
+	<div><img th:src="${menuItem.getPictureLink()}"/></div>
+	<h1>Price:</h1>
+	<div th:text="|${menuItem.getPrice()} leva|"></div>
+	<h1>Calories:</h1>
+	<div th:text="|${menuItem.getCalories()} calories|"></div>
+	<h1>Quantity(in g/ml)</h1>
+	<div th:text="|${menuItem.getQuantity()} grams|"></div>
+	<th:block th:if="${menuItem?.getBaseIngredient()}">
+		<h1>Type</h1>
+		<div th:text="${menuItem.getType()}"></div>
+		<h1>Base Ingredient:</h1>
+		<div th:text="${menuItem.getBaseIngredient().getName()}"></div>
+		<h1>Additional Ingredients:</h1>
+		<div th:each="ing: ${menuItem.getAdditionalIngredients()}" th:text="${ing.getName()}">
+		</div>
+	</th:block>
+</body>
+</html>

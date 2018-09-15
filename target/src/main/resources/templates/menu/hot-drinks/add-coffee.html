@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+<meta charset="ISO-8859-1" />
+<title>My Shop</title>
+</head>
+<body>
+	<th:block th:include="~{home :: header-fragment}"></th:block>
+	<h1>Add Coffee / Tea</h1>
+	<form method="post" th:object="${hotDrinkDto}">
+		<label>Name</label>
+		<input type="text" th:field="*{name}"/>
+		<p th:each="error : ${#fields.errors('name')}" th:text="${error}" class="alert-message">Error message</p>
+		<label>Picture Link</label>
+		<input type="text" th:field="*{pictureLink}"/>
+		<br/>
+		<label>Base Ingredient</label>
+		<select th:field="*{baseIngredient}">
+			<option th:each="ing : ${ingredients.get('base')}" th:value="${ing.getName()}" th:text="${ing.getName()}"></option>
+		</select>
+		<br/>
+<!-- 		checkboxes for the additional ingredients -->
+		<fieldset>
+			<legend>Choose additional ingredients</legend>
+			<div th:each="ing : ${ingredients.get('additional')}">
+				<input type="checkbox" th:id="${ing.getName()}" th:field="*{additionalIngredients}" th:value="${ing.getName()}"/>
+				<label th:for="${ing.getName()}" th:text="${ing.getName()}"></label>
+			</div>
+		</fieldset>
+		<input type="submit" value="Add Coffee / Tea"/>
+	</form>
+</body>
+</html>

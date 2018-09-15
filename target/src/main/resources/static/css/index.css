@@ -1,0 +1,45 @@
+table, th, td {
+	border: 1px solid black;
+}
+
+.alert-message {
+	color: red;
+}
+
+.button-green {
+	background-color: #008000;
+	border: none;
+	color: white;
+	padding: 2px 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.button-done {
+	background-color: #008000;
+	border: none;
+	color: white;
+	padding: 2px 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;	
+}
+
+.button {
+	background-color: #008CBA;
+	border: none;
+	color: white;
+	padding: 2px 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.item-class div {
+	clear: left;
+	border: 1px solid black;
+}

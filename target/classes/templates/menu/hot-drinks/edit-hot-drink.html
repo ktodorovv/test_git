@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+<meta charset="ISO-8859-1" />
+<title>My Shop</title>
+</head>
+<body>
+	<th:block th:include="~{home :: header-fragment}"></th:block>
+	<form method="post" th:object="${hotDrinkEditObjectView}">
+		<label>Name</label>
+		<input type="text" th:field="*{name}"/>
+		<p th:each="error : ${#fields.errors('name')}" th:text="${error}" class="alert-message">Error message</p>
+		<label>Picture Link</label>
+		<input th:field="*{pictureLink}" type="text"/>
+		<label>Base Ingredient</label>
+		
+<!-- 		TODO: th:field DOES NOT WORK WITH "SELECTED?!?!?!?!?!?!!?" -->
+		<select name="baseIngredient">
+			<th:block th:each="ing : ${hotDrinkEditObjectView.getAllBaseIngredients()}">
+				<option th:if="${hotDrinkEditObjectView.getBaseIngredient() == ing.getName()}" th:value="${ing.getName()}" selected th:text="${ing.getName()}"></option>
+				<option th:if="${hotDrinkEditObjectView.getBaseIngredient() != ing.getName()}" th:value="${ing.getName()}" th:text="${ing.getName()}"></option>
+			</th:block>
+		</select>
+		<fieldset>
+			<legend>Additional ingredients</legend>
+			<div th:each="ing : ${hotDrinkEditObjectView.getAllAdditionalIngredients()}">
+				<input th:if="${ing.value}" type="checkbox" th:id="${ing.key.getName()}" name="additionalIngredients" th:value="${ing.key.getName()}" checked>
+				<input th:unless="${ing.value}" type="checkbox" th:id="${ing.key.getName()}" name="additionalIngredients" th:value="${ing.key.getName()}">				
+				<label th:for="${ing.key.getName()}" th:text="${ing.key.getName()}"></label>
+			</div>
+		</fieldset>
+		<input type="submit" value="Edit Hot Drink"/>
+	</form>
+</body>
+</html>
